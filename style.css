@@ -150,9 +150,14 @@ section p {
   transition: transform 0.4s ease, opacity 0.4s ease;
   margin-bottom: 80px;
   cursor: pointer;
-}
-.design-slider img:hover {
+
+  /* 👉 여기에 애니메이션 추가 */
   animation: gentleShake 0.6s ease-in-out infinite;
+}
+
+/* hover 시에는 애니메이션 제거 */
+.design-slider img:hover {
+  animation: none;
 }
 
 @keyframes gentleShake {
