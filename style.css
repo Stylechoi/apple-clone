@@ -150,21 +150,10 @@ section p {
   transition: transform 0.4s ease, opacity 0.4s ease;
   margin-bottom: 80px;
   cursor: pointer;
-
-  /* 👉 여기에 애니메이션 추가 */
   animation: gentleShake 0.6s ease-in-out infinite;
 }
-
-/* hover 시에는 애니메이션 제거 */
 .design-slider img:hover {
   animation: none;
-}
-
-@keyframes gentleShake {
-  0%,100% { transform: translateX(0) rotate(0); }
-  25%     { transform: translateX(-5px) rotate(-1deg); }
-  50%     { transform: translateX(5px) rotate(1deg); }
-  75%     { transform: translateX(-5px) rotate(-1deg); }
 }
 
 /* ===== 무료 섹션 ===== */
@@ -172,6 +161,7 @@ section p {
   text-align: center;
   margin-bottom: 20px;
 }
+
 .free-letter {
   display: inline-block;
   font-size: 250px;
@@ -180,32 +170,13 @@ section p {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   user-select: none;
-  opacity: 0;
-  transform: translateY(-30px) rotate(-10deg);
-  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.2,1,0.3,1);
+  animation: freeShake 1.5s ease-in-out infinite;
 }
+
 .free-letter.show:nth-child(1) { animation: fall 0.6s forwards; }
 .free-letter.show:nth-child(2) { animation: rise 0.6s forwards 0.1s; }
 .free-letter.show:nth-child(3) { animation: fall 0.6s forwards 0.2s; }
 .free-letter.show:nth-child(4) { animation: rise 0.6s forwards 0.3s; }
-
-@keyframes fall {
-  0%   { transform: translateY(-60px) rotate(-30deg); opacity: 0; }
-  50%  { opacity: 1; }
-  100% { transform: translateY(0) rotate(0); opacity: 1; }
-}
-@keyframes rise {
-  0%   { transform: translateY(60px) rotate(30deg); opacity: 0; }
-  50%  { opacity: 1; }
-  100% { transform: translateY(0) rotate(0); opacity: 1; }
-}
-@keyframes shake {
-  0%,100% { transform: translate(0,0); opacity: 1; }
-  20%     { transform: translate(-20px,10px) rotate(-15deg); }
-  40%     { transform: translate(15px,-10px) rotate(10deg); }
-  60%     { transform: translate(-10px,5px) rotate(-8deg); }
-  80%     { transform: translate(8px,-5px) rotate(5deg); }
-}
 
 /* ===== 토글 버튼 ===== */
 .cta-btn {
@@ -245,56 +216,79 @@ section p {
   transform: translateY(0);
 }
 
-/* ────────────────────────────────────────────────────────
-   1. 모바일 화면 전용 (max-width: 768px)
-   ──────────────────────────────────────────────────────── */
-   @media (max-width: 768px) {
-    /* 텍스트 줄바꿈 허용 & 글자 크기 조정 */
-    .overlay h1 {
-      white-space: normal;       /* 기존 nowrap 해제 */
-      font-size: 32px;           /* 화면크기에 맞춰 축소 */
-      line-height: 1.2;          /* 줄간격 여유 */
-      padding: 0 16px;           /* 양옆 여백 */
-    }
-    .overlay p {
-      white-space: normal;
-      font-size: 16px;
-      line-height: 1.4;
-      padding: 0 16px;
-    }
-  
-    /* Hero 섹션 높이 조금 줄여서 스크롤 안생기게 */
-    .hero {
-      height: auto;              /* 컨텐트에 맞춰 유연하게 */
-      padding: 80px 0;           /* 위아래 여백 확보 */
-    }
-  
-    /* 버튼·레이아웃들도 필요하면 유연하게 변경 가능 */
-    .cta-btn {
-      font-size: 14px;
-      padding: 10px 20px;
-    }
-  }
-  
-  /* ────────────────────────────────────────────────────────
-   1. 모바일 화면 전용 (max-width: 768px)
-   ──────────────────────────────────────────────────────── */
+/* ===== 모바일 대응 ===== */
 @media (max-width: 768px) {
-  /* 1) 컨테이너에서 넘치는 부분 숨기기 */
+  .overlay h1 {
+    white-space: normal;
+    font-size: 32px;
+    line-height: 1.2;
+    padding: 0 16px;
+  }
+  .overlay p {
+    white-space: normal;
+    font-size: 16px;
+    line-height: 1.4;
+    padding: 0 16px;
+  }
   .hero {
+    height: auto;
+    padding: 80px 0;
     overflow: hidden;
   }
-
-  /* 2) 이미지 기본 크기 조정 */
+  .cta-btn {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
   #m4Image {
-    width: 80%;            /* 화면 너비의 80%로 축소 */
-    max-width: 300px;      /* 최대 300px */
+    width: 80%;
+    max-width: 300px;
     transform-origin: center center;
   }
-
-  /* 3) grow 시 확대 비율 조정 */
   #m4Image.grow {
-    transform: scale(1.2) !important; /* PC보다 훨씬 작은 확대 비율 */
+    transform: scale(1.2) !important;
     transition: transform 0.8s ease-out;
+  }
+}
+
+/* ===== 애니메이션 정의 ===== */
+@keyframes gentleShake {
+  0%,100% { transform: translateX(0) rotate(0); }
+  25%     { transform: translateX(-5px) rotate(-1deg); }
+  50%     { transform: translateX(5px) rotate(1deg); }
+  75%     { transform: translateX(-5px) rotate(-1deg); }
+}
+
+@keyframes fall {
+  0%   { transform: translateY(-60px) rotate(-30deg); opacity: 0; }
+  50%  { opacity: 1; }
+  100% { transform: translateY(0) rotate(0); opacity: 1; }
+}
+
+@keyframes rise {
+  0%   { transform: translateY(60px) rotate(30deg); opacity: 0; }
+  50%  { opacity: 1; }
+  100% { transform: translateY(0) rotate(0); opacity: 1; }
+}
+
+@keyframes shake {
+  0%,100% { transform: translate(0,0); opacity: 1; }
+  20%     { transform: translate(-20px,10px) rotate(-15deg); }
+  40%     { transform: translate(15px,-10px) rotate(10deg); }
+  60%     { transform: translate(-10px,5px) rotate(-8deg); }
+  80%     { transform: translate(8px,-5px) rotate(5deg); }
+}
+
+@keyframes freeShake {
+  0%, 100% {
+    transform: translateX(0) rotate(0);
+  }
+  25% {
+    transform: translateX(-5px) rotate(-1deg);
+  }
+  50% {
+    transform: translateX(5px) rotate(1deg);
+  }
+  75% {
+    transform: translateX(-5px) rotate(-1deg);
   }
 }
