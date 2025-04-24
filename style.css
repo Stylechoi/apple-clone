@@ -239,3 +239,35 @@ section p {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ────────────────────────────────────────────────────────
+   1. 모바일 화면 전용 (max-width: 768px)
+   ──────────────────────────────────────────────────────── */
+   @media (max-width: 768px) {
+    /* 텍스트 줄바꿈 허용 & 글자 크기 조정 */
+    .overlay h1 {
+      white-space: normal;       /* 기존 nowrap 해제 */
+      font-size: 32px;           /* 화면크기에 맞춰 축소 */
+      line-height: 1.2;          /* 줄간격 여유 */
+      padding: 0 16px;           /* 양옆 여백 */
+    }
+    .overlay p {
+      white-space: normal;
+      font-size: 16px;
+      line-height: 1.4;
+      padding: 0 16px;
+    }
+  
+    /* Hero 섹션 높이 조금 줄여서 스크롤 안생기게 */
+    .hero {
+      height: auto;              /* 컨텐트에 맞춰 유연하게 */
+      padding: 80px 0;           /* 위아래 여백 확보 */
+    }
+  
+    /* 버튼·레이아웃들도 필요하면 유연하게 변경 가능 */
+    .cta-btn {
+      font-size: 14px;
+      padding: 10px 20px;
+    }
+  }
+  
