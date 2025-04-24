@@ -1,148 +1,276 @@
-/* 1. 초기화 */
+/* ===== 초기화 ===== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  html, body {
-    height: 100%;
-    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
-    background: linear-gradient(to bottom, #000, #111);
-    color: white;
-    overflow-x: hidden;
-  }
-  
-  /* 2. Hero 중앙 정렬 */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding-top: 30px; /* 🍎 로고 보정용 */
-  }
-  
-  /* 3. 로고 */
-  .logo img {
-    width: 60px;
-    margin-bottom: 24px;
-  }
-  
-  /* 4. 헤드라인 */
-  .hero h1 ,
-  section h2,
-  section h3,
-  section h4 {
-    font-size: 60px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    letter-spacing: -1px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  }
-  
-  {
-    font-weight: 700;
-    margin-bottom: 12px;
-    letter-spacing: -1px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  }
-  
-  /* 5. 서브텍스트 */
-  .hero p {
-    font-size: 18px;
-    color: #ccc;
-    margin-bottom: 24px;
-  }
-  
-  /* 6. 버튼 */
-  .hero button, {
-    padding: 14px 36px;
-    font-size: 16px;
-    background: white;
-    color: black;
-    border: none;
-    border-radius: 9999px;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    transition: all 0.3s ease;
-  }
-  
-  .hero button:hover {
-    background: #ddd;
-    transform: scale(1.05);
-  }
-  
-  /* 7. Scroll 인터랙션 대상 섹션 */
-  section {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 1s ease;
-  }
-  
-  section.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  section p {
-    font-size: 18px;
-    color: #ccc;
-    max-width: 600px;
-    line-height: 1.6;
-  }
-  
-  .btn {
-    padding: 14px 36px;
-    font-size: 16px;
-    background: white;
-    color: black;
-    border: none;
-    border-radius: 9999px;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    transition: all 0.3s ease;
-  }
-  
-  .btn:hover {
-    background: #ddd;
-    transform: scale(1.05);
-  }
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #000;
+  color: white;
+  overflow-x: hidden;
+}
 
-  section button {
-    margin-top: 24px;
-  }
+/* ===== Hero 섹션 ===== */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url('macbook.png') no-repeat center center / cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
-  #troll-message {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.8);
-    background: #ff0000;
-    color: white;
-    padding: 20px 40px;
-    border-radius: 12px;
-    font-size: 24px;
-    font-weight: bold;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    z-index: 9999;
-    opacity: 0;
-    transition: all 0.4s ease;
-    pointer-events: none;
-  }
-  #troll-message.show {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  
+.overlay {
+  position: relative;
+  padding: 20px;
+  max-width: 90%;
+  z-index: 2;
+}
 
-  
-  
-  
+/* h1, p 기본 여백 제거 */
+.overlay h1,
+.overlay p {
+  margin: 0;
+  padding: 0;
+}
+
+/* h1 바로 다음에 오는 p만 살짝 띄우기 */
+.overlay h1 + p {
+  margin-top: 8px;
+}
+
+/* p 바로 다음에 오는 버튼만 살짝 띄우기 */
+.overlay p + .btn {
+  margin-top: 12px;
+}
+
+.overlay h1 {
+  font-size: 60px;
+  font-weight: 800;
+  white-space: nowrap;
+  color: white;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5),
+               0 0 40px rgba(255, 255, 255, 0.4);
+}
+
+.overlay p {
+  font-size: 20px;
+  color: #ccc;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: block;
+  width: 100%;
+}
+
+.btn {
+  padding: 14px 36px;
+  font-size: 18px;
+  background: white;
+  color: black;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+.btn:hover {
+  background: #eee;
+  transform: scale(1.05);
+}
+
+/* ===== 공통 섹션 ===== */
+section {
+  min-height: 100vh;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+section h2 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+section p {
+  font-size: 20px;
+  color: #ccc;
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+/* ===== 성능 섹션: M4 이미지 ===== */
+.m4-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20vh;
+  overflow: visible;
+}
+.m4-scale {
+  width: 300px;
+  height: auto;
+  transform: scale(0.5);
+  opacity: 0.5;
+  transition: transform 1s ease, opacity 1s ease;
+  will-change: transform, opacity;
+  z-index: 1;
+}
+.m4-scale.grow {
+  transform: scale(3);
+  opacity: 1;
+}
+.text-wrapper {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== 감성 섹션: 클릭 전환 슬라이드 ===== */
+.design-slider {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  flex-direction: column;
+  gap: 40px;
+}
+.design-slider img {
+  max-width: 90%;
+  width: 700px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  margin-bottom: 80px;
+  cursor: pointer;
+}
+.design-slider img:hover {
+  transform: scale(1.03) rotateZ(1deg);
+}
+
+/* ===== 페이드 인 ===== */
+.fade-target {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease;
+}
+.fade-target.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 무료로 받기 버튼 간격 */
+.cta-btn {
+  margin-top: 25px;
+}
+
+/* 트롤박스 */
+.troll-box {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translate(-50%, -20px);
+  max-width: 200px;
+  padding: 16px;
+  background: rgba(30,30,30,0.9);
+  color: #fff;
+  font-size: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 999;
+  text-align: center;
+}
+.troll-box.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* FREE 애니메이션 */
+.free-wrapper {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.free-letter {
+  display: inline-block;
+  font-size: 250px;
+  font-weight: 800;
+  background: linear-gradient(90deg, #0071E3 0%, #AF52DE 40%, #FF2D55 70%, #FF9500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  user-select: none;
+  cursor: default;
+  opacity: 0;
+  transform: translateY(-30px) rotate(-10deg);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.2,1,0.3,1);
+}
+.free-letter.show {
+  opacity: 1;
+  transform: translateY(0) rotate(0);
+}
+
+/* FREE 중구난방 애니메이션 키프레임 */
+@keyframes fall {
+  0%   { transform: translateY(-60px) rotate(-30deg); opacity: 0; }
+  50%  { opacity: 1; }
+  100% { transform: translateY(0) rotate(0); opacity: 1; }
+}
+@keyframes rise {
+  0%   { transform: translateY(60px) rotate(30deg); opacity: 0; }
+  50%  { opacity: 1; }
+  100% { transform: translateY(0) rotate(0); opacity: 1; }
+}
+@keyframes shake {
+  0%,100% { transform: translate(0,0); opacity: 1; }
+  20%     { transform: translate(-20px,10px) rotate(-15deg); }
+  40%     { transform: translate(15px,-10px) rotate(10deg); }
+  60%     { transform: translate(-10px,5px) rotate(-8deg); }
+  80%     { transform: translate(8px,-5px) rotate(5deg); }
+}
+
+/* 노트북 흔들 */
+@keyframes gentleShake {
+  0%,100% { transform: translateX(0) rotate(0); }
+  25%     { transform: translateX(-5px) rotate(-1deg); }
+  50%     { transform: translateX(5px) rotate(1deg); }
+  75%     { transform: translateX(-5px) rotate(-1deg); }
+}
+.design-slider img:hover,
+#designImage:hover {
+  animation: gentleShake 0.6s ease-in-out infinite;
+  cursor: pointer;
+}
+
+/* ===== Hero 중앙 정렬 & 요소 간격 딱 붙이기 ===== */
+.hero .overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;       /* 섹션 높이 채우기 */
+  text-align: center;
+}
+
+.hero .overlay h1 {
+  margin: 0 0 8px;    /* 아래로 8px만 띄우기 */
+}
+
+.hero .overlay .hero-sub {
+  margin: 0 0 16px;   /* 아래로 16px만 띄우기 */
+  font-size: 20px;
+  color: #ccc;
+}
+
+.hero .overlay .hero-btn {
+  margin: 0;          /* p 바로 아래 딱 붙음 */
+}

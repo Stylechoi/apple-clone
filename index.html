@@ -1,54 +1,65 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apple</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="apple.png" type="image/png">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apple M4 PRO</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="apple.png" type="image/png" />
 </head>
 <body>
-  <div class="hero">
-    <div class="hero-inner">
-      <div class="logo">
-        <img src="apple.png" alt="로고" width="60" />
-      </div>
-      <h1>지금, 새로운 M4칩을 경험하세요.</h1>
-      <p>믿을 수 없는 속도와 그래픽, 그리고 효율성.</p>
-      <button class="btn">더 알아보기</button>
-
-    </div>
-  </div>
   
-        
-          <section class="fade-target">
-            <h2>당신의 모든 작업을 위한</h2>
-            <p>M4칩은 창작, 코딩, 그리고 게이밍까지 모두 커버합니다.</p>
+  <section class="hero">
+    <div class="overlay">
+      <!-- 타입 효과용으로 비워두기 -->
+      <h1 id="typing"></h1>
+      <!-- 서브텍스트에 클래스 추가 -->
+      <p class="hero-sub">믿을 수 없는 속도와 그래픽, 그리고 효율성.</p>
+      <!-- 버튼에 클래스 추가 -->
+      <button class="btn hero-btn">더 알아보기</button>
+      
 
-          </section>
-
-            
-          <section class="fade-target">
-            <h3>당신의 감성을 위한</h3>
-            <p>최상의 디자인, 황금비에 따른 완벽한 곡선, 미학을 추구합니다.</p>
-
-          </section>
-          
-          <section class="fade-target">
-            <h3>이 모든게 구라라는 사실</h3>
-            <p>이 비싼걸 가지실 수 있을거라 생각하신건가요?</p>
-            <P>하지만 국가지원으로 무료로 드립니다.</p>
-            <button class="btn" id="troll-button">무료로 받기</button>
-            <div id="troll-message">응~ 그딴 거 없음 ㅋㅋ😛</div>
+      
+    </div>
+  </section>
 
 
+  <section class="performance-section fade-target">
+    <div class="m4-wrapper">
+      <img src="m4.png" alt="M4 Logo" class="m4-scale" id="m4Image" />
+    </div>
+    <div class="text-wrapper">
+      <h2>성능을 위한 진화</h2>
+      <p>M4칩은 코딩, 디자인, 영상편집까지 자유롭게 소화합니다.</p>
+    </div>
+  </section>
+  
 
-          </section>
-          
-      </div>
+  <!-- 감성 디자인 섹션 -->
+  <section class="design-section fade-target">
+    <div class="design-slider">
+      <img id="designImage" src="mac1.jpg" alt="디자인 이미지" />
+    </div>
+    <div class="text-wrapper">
+      <h2>감성을 위한 디자인</h2>
+      <p>최상의 미니멀리즘과 황금비율을 추구합니다.</p>
+    </div>
+  </section>
 
-      <script src="main.js"></script>
+  <!-- 무료 섹션(트롤박스 포함) -->
+  <section class="fade-target">
+    <div class="free-wrapper">
+      <span class="free-letter">F</span>
+      <span class="free-letter">R</span>
+      <span class="free-letter">E</span>
+      <span class="free-letter">E</span>
+    </div>
+    <h1>이 노트북을 무료로 주고있어</h1>
+    <p>너도 받을 수 있어 그러니까 클릭 해</p>
+    <button class="btn cta-btn">무료로 받기</button>
+    <div id="trollBox" class="troll-box">그딴 게 있겠냐 🤪</div>
+  </section>
 
+  <script src="main.js"></script>
 </body>
 </html>
