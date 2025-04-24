@@ -1,0 +1,148 @@
+/* 1. 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    background: linear-gradient(to bottom, #000, #111);
+    color: white;
+    overflow-x: hidden;
+  }
+  
+  /* 2. Hero 중앙 정렬 */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 30px; /* 🍎 로고 보정용 */
+  }
+  
+  /* 3. 로고 */
+  .logo img {
+    width: 60px;
+    margin-bottom: 24px;
+  }
+  
+  /* 4. 헤드라인 */
+  .hero h1 ,
+  section h2,
+  section h3,
+  section h4 {
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: -1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  {
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: -1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* 5. 서브텍스트 */
+  .hero p {
+    font-size: 18px;
+    color: #ccc;
+    margin-bottom: 24px;
+  }
+  
+  /* 6. 버튼 */
+  .hero button, {
+    padding: 14px 36px;
+    font-size: 16px;
+    background: white;
+    color: black;
+    border: none;
+    border-radius: 9999px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+  }
+  
+  .hero button:hover {
+    background: #ddd;
+    transform: scale(1.05);
+  }
+  
+  /* 7. Scroll 인터랙션 대상 섹션 */
+  section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+  }
+  
+  section.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  section p {
+    font-size: 18px;
+    color: #ccc;
+    max-width: 600px;
+    line-height: 1.6;
+  }
+  
+  .btn {
+    padding: 14px 36px;
+    font-size: 16px;
+    background: white;
+    color: black;
+    border: none;
+    border-radius: 9999px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+  }
+  
+  .btn:hover {
+    background: #ddd;
+    transform: scale(1.05);
+  }
+
+  section button {
+    margin-top: 24px;
+  }
+
+  #troll-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: #ff0000;
+    color: white;
+    padding: 20px 40px;
+    border-radius: 12px;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+    opacity: 0;
+    transition: all 0.4s ease;
+    pointer-events: none;
+  }
+  #troll-message.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+
+  
+  
+  
