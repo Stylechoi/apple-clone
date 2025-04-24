@@ -50,7 +50,7 @@
 
 ## 🧾 결과물
 
-![스크린샷](.assets/preview.png)  
+[스크린샷](./assets/preview.png)
 
 ---
 
