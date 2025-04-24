@@ -271,3 +271,25 @@ section p {
     }
   }
   
+  /* ────────────────────────────────────────────────────────
+   1. 모바일 화면 전용 (max-width: 768px)
+   ──────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* 1) 컨테이너에서 넘치는 부분 숨기기 */
+  .hero {
+    overflow: hidden;
+  }
+
+  /* 2) 이미지 기본 크기 조정 */
+  #m4Image {
+    width: 80%;            /* 화면 너비의 80%로 축소 */
+    max-width: 300px;      /* 최대 300px */
+    transform-origin: center center;
+  }
+
+  /* 3) grow 시 확대 비율 조정 */
+  #m4Image.grow {
+    transform: scale(1.2) !important; /* PC보다 훨씬 작은 확대 비율 */
+    transition: transform 0.8s ease-out;
+  }
+}
